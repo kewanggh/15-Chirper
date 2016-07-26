@@ -1,0 +1,233 @@
+<!-- /************* nav bar *************/ -->
+<nav class="navbar-fluid navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- centered container in nav-bar -->
+        <a ng-href="#/posts" class="navbar-brand active" href="" id="header">
+            <!-- <a  class="navbar-brand active" href="#/posts" id="header"> -->
+            <span class="char1">C</span>
+            <span class="char2">h</span>
+            <span class="char3">i</span>
+            <span class="char4">r</span>
+            <span class="char5">p</span>
+            <span class="char6">e</span>
+            <span class="char7">r</span>
+        </a>
+        <p class="navbar-text"><img src="/style/logo.png" alt="logo" id="logo" class="tossing"></p>
+        <form class="navbar-form navbar-right" role="search">
+            <!-- search box -->
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="text">
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="postsCtrl.search(text); number=null;">Go</button>
+            <button type="button" class="btn btn-default chirpa btn-warning" ng-click="number=5; postsCtrl.texttosearch=''" id="star">&starf;</button>
+            <button type="button" class="btn btn-default chirpa btn-primary" ng-click="postsCtrl.myBlurFunction(1)" id="blur1">&#9998;&nbsp;Chirp</button>
+        </form>
+        <!-- Chirp input popup -->
+        <div id="overlay">
+            <div id="popup" class="slideRight">
+                <form ng-Submit="postsCtrl.addingPost(postsCtrl.post); postsCtrl.myBlurFunction(0);">
+                    <legend>&nbsp;</legend>
+                    <textarea required class="form-control" maxlength="140" rows="3" placeholder="What's on your mind?" ng-model="postsCtrl.post.Text"></textarea>
+                    <small>{{postsCtrl.charactersRemaining()}}</small>
+                    <input class="btn submit-btn pull-right btn-primary" type="submit" value="&#9998;&nbsp;chirp" />
+                    <!--  <input class="btn submit-btn pull-right btn-default" type="button" id="cancel" ng-click="postsCtrl.myBlurFunction(0)" value="Cancel" /> -->
+                    <button type="button" class="close" ng-click="postsCtrl.myBlurFunction(0)" id="cross">&times;</button>
+                </form>
+                <!--   <button ng-click="postsCtrl.myBlurFunction(0)" class="submit-btn center">cancel</button> -->
+                <!--  <a ng-click="postsCtrl.myBlurFunction(0)">hide</a> -->
+            </div>
+        </div>
+        <p class="navbar-right navbar-text" id="logout">
+            <a ng-click="postsCtrl.logingout()">
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true" id="logicon"></span>
+            </a>
+        </p>
+    </div>
+</nav>
+<!-- left container -->
+<div id="testlayout" class="container">
+    <span id="top">top</span>
+    <!-- <div class="col-md-offset-1 col-md-4 clearfix temp mainContainer" id="left"> -->
+    <div class="col-lg-6 temp clearfix mainContainer" id="left">
+        <div class="box boxleft"><span class="dot"></span></div>
+        <!-- <div class="box boxright"><span class="dot"></span></div> -->
+        <img src="/style/me.jpg" class="userphoto" alt="">
+        <p class="postuserside">
+            <span>Ke Wang</span>
+            <br>
+            <span class="bold"><a ng-click="postsCtrl.authData()">clcik me</a>{{postsCtrl.currentUser}}</span>
+            <small></small>
+        </p>
+        <!-- <div class="panel-body post" background-color="white" > </div> -->
+        <div id="spinner">
+            <div style="animation-delay: 0s;"></div>
+            <div style="animation-delay: 0.1s;"></div>
+            <div style="animation-delay: 0.2s;"></div>
+            <div style="animation-delay: 0.3s;"></div>
+            <div style="animation-delay: 0.4s;"></div>
+            <div style="animation-delay: 0.5s;"></div>
+            <div style="animation-delay: 0.6s;"></div>
+            <div style="animation-delay: 0.7s;"></div>
+            <div style="animation-delay: 0.8s;"></div>
+            <div style="animation-delay: 0.9s;"></div>
+            <div style="animation-delay: 1s;"></div>
+            <div style="animation-delay: 1.1s;"></div>
+            <div style="animation-delay: 1.2s;"></div>
+            <!-- <div style="animation-delay: 1.3s;"></div>
+                       <div style="animation-delay: 1.4s;"></div>
+                       <div style="animation-delay: 1.5s;"></div>
+                       <div style="animation-delay: 1.6s;"></div>
+                       <div style="animation-delay: 1.7s;"></div>
+                       <div style="animation-delay: 1.8s;"></div>
+                       <div style="animation-delay: 1.9s;"></div>
+                       <div style="animation-delay: 2s;"></div>
+                       <div style="animation-delay: 2.1s;"></div>
+                       <div style="animation-delay: 2.2s;"></div>
+                       <div style="animation-delay: 2.3s;"></div>
+                       <div style="animation-delay: 2.4s;"></div>
+                       <div style="animation-delay: 2.5s;"></div>
+                       <div style="animation-delay: 2.6s;"></div>
+                       <div style="animation-delay: 2.7s;"></div>
+                       <div style="animation-delay: 2.8s;"></div>
+                       <div style="animation-delay: 2.9s;"></div>  -->
+        </div>
+    </div>
+    <!-- /************* middle container *************/ -->
+    <!-- <div class="col-md-offset-4 col-md-4 clearfix temp" ng-init="postsCtrl.gettingPost()" id="mainContainer"> -->
+    <div class="col-lg-6 threeintwo clearfix temp" ng-init="postsCtrl.gettingPost()" id="mainContainer">
+        <!--  <div class="col-md-offset-4 col-md-4 clearfix""></div> -->
+        <!-- Chirp input panel -->
+        <div class="panel-body post" id="panel">
+            <div class="clearfix">
+                <form ng-Submit="postsCtrl.addingPost(postsCtrl.post)" class="form-horizontal">
+                    <fieldset>
+                        <!-- <input required type="text" class="form-control" placeholder="Your name" />  -->
+                        <legend id="legend"><a ng-click="num = postsCtrl.posts.length; number=null; postsCtrl.texttosearch=''; ">"View all {{postsCtrl.getChirpCount(postsCtrl.posts)}} Chirps"</a></legend>
+                        <div class="form-group">
+                            <div class="col-lg-10 centered">
+                                <textarea required class="form-control" id="textArea" style="background-image: none; background-position: 0% 0%; background-repeat: repeat;" maxlength="140" rows="3" placeholder="What's on your mind?" ng-model="postsCtrl.post.Text"></textarea>
+                                <small>{{postsCtrl.charactersRemaining()}}</small>
+                                <input class="btn submit-btn pull-right btn-primary" type="submit" value="Chirp&emsp;" />
+                                <span class="glyphicon glyphicon-leaf" aria-hidden="true" id="leaf"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <!-- /************* Chirp feed *************/ -->
+        <div id="post-stream">
+            <div class="post" ng-repeat="post in postsCtrl.posts | orderBy:'createdDate':true | filter:{text:postsCtrl.texttosearch, likeCount: number ||''} | limitTo: num || 5" ng-class="{'basic': post.likeCount == 0, 'low':post.likeCount <5 , 'medium':post.likeCount <10, 'high':post.likeCount < 30}">
+                <div class="postbox">
+                    <p class="postuser">
+                        <span class="bold" ng-model="name">{{postsCtrl.getusername(post.user.userName) | uppercase}}</span>
+                        <small>@{{postsCtrl.getusername(post.user.userName)}}</small>
+                        <small class="pull-right">{{post.createdDate | date:"MMM d, y"}}</small>
+                    </p>
+                    <div class="textbox">
+                        <p class="posttext">&emsp;{{post.text}}</p>
+                        <!--  <small>Posted by @{{postsCtrl.getusername(post.user.userName)}}</small> -->
+                        <!--   <small class="pull-right">{{post.createdDate | date:"h:mma 'on' MMM d, y"}}</small> -->
+                        <a ng-click="post.open=!post.open" class="pull-left">
+                    Comment 
+                    </a>
+                        <span class="pull-right">
+                    <a ng-click="postsCtrl.updatingLikeCount(post)" id="likeheart">
+                        <span class="glyphicon glyphicon-heart hatch" aria-hidden="true" id="heart"></span>
+                        <!--   <span ng-class="{'glyphicon glyphicon-star hatch' : !postsCtrl.active, 'glyphicon glyphicon-star-empty hatch': postsCtrl.isActive}" aria-hidden="true" id="heart"> -->
+                        </a>
+                        <small>{{post.likeCount}}</small>
+                        </span>
+                    </div>
+                    <!-- /************* Chirp feed *************/ -->
+                    <div class="commentContainer">
+                        <div>
+                            <div ng-hide="!post.open">
+                                <form ng-Submit="postsCtrl.addingComment(post,postsCtrl.comment); post.open=!post.open;">
+                                    <textarea required class="form-control" rows="2" placeholder="Comment" ng-model="postsCtrl.comment.text" ng-cloak></textarea>
+                                    <input class="btn submit-btn btn-primary pull-right" type="submit" value="Chirp" />
+                                </form>
+                            </div>
+                        </div>
+                        <div id="commenttable">
+                            <table class="table table-striped">
+                                <tr ng-repeat="comment in post.comments" id="commentrow" ng-cloak>
+                                    <td>{{postsCtrl.getusername(comment.user.userName)}}<small>@
+                                {{postsCtrl.getusername(comment.user.userName)}}</small>
+                                        <small class="pull-right">{{comment.createdDate | date:"MMM d, y" }}</small>
+                                        <br> &emsp;{{comment.text}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /************* right container *************/ -->
+    <!-- <div class="col-md-offset-8 col-md-4 clearfix temp mainContainer"> -->
+    <div class="col-lg-6 threeinthree temp clearfix mainContainer">
+        <div class="contain" ng-controller="TwitterController">
+            <h5>&emsp;Twitter Feed</h5>
+            <div class="therow">
+                <div class="col-xs-12 border">
+                    <button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
+                    <button ng-click="refreshTimeline()" id="getTimelineButton" type="button" class="btn btn-info" style="display:none;">Update My Timeline</button>
+                    <button ng-click="signOut()" id="signOut" type="button" class="btn btn-link" style="display:none;">Sign Out</button>
+                    <!--      <div class="form-group">
+                               <input type="text" class="form-control" placeholder="Search" ng-model="tweetsearch">
+               
+                           </div>
+                           <button type="submit" class="btn btn-default" ng-click="searchTwts(tweetsearch)">Go</button> -->
+                    <div class="input-group" id="gobutton" style="display:none;">
+                        <input type="text" class="form-control" placeholder="Search for..." ng-model="tweetsearch">
+                        <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="searchTwts(tweetsearch)">Go!</button>
+      </span>
+                    </div>
+                    <div id="progressBar" style="display:none;">--------------------------</div>
+                    <!-- /input-group -->
+                </div>
+            </div>
+            <div class="col-xs-12" id="results">
+                <div class="therow" ng-repeat="t in tweets">
+                    <div>
+                        <div class="col-xs-2 col-sm-1 circle">
+                            <img ng-src="{{t.user.profile_image_url}}" class="img-circle">
+                        </div>
+                        <div class="col-xs-10 col-sm-11 tweetbox">
+                            <p class="ttext">
+                                <small>{{t.user.name}}</small>
+                                <br>{{getusername(t.text)}}
+                            </p>
+                            <br>
+                            <!--  <a href={{gethttp(t.text)}}>Link</a>
+                       <a class="embedly-card" href="{{gethttp(t.text)}}">Google</a> -->
+                            <blockquote class="embedly-card" data-card-type="article">
+                                <h4><a href="{{gethttp(t.text)}}"></a></h4>
+                            </blockquote>
+                            <p id="coverup">block ofwordfsdfdfdfsdds</p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <!-- <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script> -->
+                <!--  <div>
+        <iframe ng-src="{{getUrl(t)}}" width="80px" height="50px" style="overflow:auto;border:1px ridge grey">
+        </iframe></div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gotop">
+    <a ng-click="postsCtrl.gotoTop()">
+        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true" id="topicon"></span>
+    </a>
+</div>
+<div class="footer clearfix">
+    <p>&copy; 2016
+        <span>Ke Wang</span> &nbsp;|
+        <span><a href="mailto:shawn_k03@hotmail.com" id="contact">say hi</a></span>
+    </p>
+</div>

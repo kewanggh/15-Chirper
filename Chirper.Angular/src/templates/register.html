@@ -1,0 +1,38 @@
+<nav class="navbar-fluid navbar-default navbar-fixed-top">
+        <div class="container">
+            <a class="navbar-brand animateheader" href="">&#10077;Welcome to The Chirper App!&#10078;</a>
+            <p class="navbar-text"><img src="/style/logo.png" alt="logo" id="logo" class="tossing"></p>
+            <p class="navbar-text"></p>
+            <p class="navbar-right navbar-text"><a href="#/login">Login</a> or <a href="#/register">Register</a></p>
+        </div>
+    </nav>
+<!-- 
+<div class="row"> -->
+	<div class="col-md-4 col-md-offset-4" id="mainContainer">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				Register
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="">Email Address</label>
+					<input type="email" ng-model="registerCtrl.registration.emailAddress" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="">Password</label>
+					<input type="password" ng-model="registerCtrl.registration.password" class="form-control" pattern=".{6,6}" required title="6 characters only" id="topPass">
+				</div>
+				<div class="form-group">
+					<label for="password">Confirm Password</label>
+					<input type="password" ng-model="registerCtrl.registration.confirmPassword" class="form-control" pattern=".{6,6}" required title="6 characters only" id="btmPass">
+				</div>
+			</div>
+			<div class="panel-footer clearfix" >
+				<button class="btn btn-primary pull-right" ng-click="registerCtrl.register()">Register</button> 
+			</div>
+		</div>
+	</div>
+	
+<div class="box boxleft"><span class="dot"></span></div>
+<div class="footer clearfix">&copy; 2016 <span>Ke Wang</span> | <span><a href="mailto:shawn_k03@hotmail.com" id="contact">say hi</a></span> </div>
+

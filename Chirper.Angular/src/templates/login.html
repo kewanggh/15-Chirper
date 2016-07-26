@@ -1,0 +1,48 @@
+
+    <nav class="navbar-fluid navbar-default navbar-fixed-top">
+        <div class="container">
+            <a class="navbar-brand animateheader" href="">&#10077;Welcome Back!&#10078; </a>
+            <p class="navbar-text"><img src="/style/logo.png" alt="logo" id="logo" class="tossing"></p>
+            <p class="navbar-text"></p>
+            <p class="navbar-right navbar-text"><a href="#/login">Login</a> or <a href="#/register">Register</a></p>
+        </div>
+    </nav>
+ 
+    <!-- <img src="/style/sea.jpg" alt=""> -->
+        <div class="col-md-offset-4 col-md-4 clearfix" id="mainContainer">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Login
+                </div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" ng-model="loginCtrl.username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+
+                        <input type="password" pattern=".{6,}" required title="6 characters minimum" ng-model="loginCtrl.password" class="form-control">
+                           <!--  <input type="password" pattern=".{6,6}" required title="6 characters only" ng-model="loginCtrl.password" class="form-control"> -->
+                    </div>
+                </div>
+                <div class="box boxleft"><span class="dot"></span></div>
+
+                <div class="panel-footer clearfix">
+                    <a ui-sref="register" class="btn btn-default">Register</a>
+                    <button class="btn btn-primary pull-right" ng-click="loginCtrl.login()">Login</button>
+                </div>
+            </div>
+        </div>
+          <div id="parent">
+            <div id="butterfly">
+                <div id="leftwing"></div>
+                <div id="rightwing"></div>
+            </div>
+        </div>
+<div class="footer clearfix">&copy; 2016 <span>Ke Wang</span> | <span><a href="mailto:shawn_k03@hotmail.com" id="contact">say hi</a></span> </div>
+
+     
+   
+

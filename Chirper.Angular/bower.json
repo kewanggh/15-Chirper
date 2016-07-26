@@ -1,0 +1,25 @@
+{
+  "name": "Chirper.Angular",
+  "homepage": "https://github.com/kewanggh/15-Chirper",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.6",
+    "angular-toastr": "^1.7.0",
+    "angular-ui-router": "^0.3.0",
+    "angular-local-storage": "^0.2.7",
+    "ng-twitter-api": "^0.1.5",
+    "ngCordova": "^0.1.26-alpha",
+    "angular-sanitize": "^1.5.6"
+  }
+}
